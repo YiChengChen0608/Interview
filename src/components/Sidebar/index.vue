@@ -67,6 +67,9 @@ onMounted(() => {
   background-color: #000;
   transform: translateX(200%);
   transition: 0.1s linear;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.9;
 }
 
 .sidebar.open {

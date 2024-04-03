@@ -27,7 +27,7 @@ const expandMenuItems = (items, key) => {
     }
     // 如果有children的 會在往下找
     if (Object.hasOwn(item, "children")) {
-      // 利用遞迴判斷 如果target為當前item的children或更下層的children時，則改狀態
+      // 遞迴判斷 如果target為當前item的children或更下層的children時，則改狀態
       if (expandMenuItems(item.children, key)) {
         item.expanded = true;
         goal = true;

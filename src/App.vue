@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import Header from "@/components/Header/index.vue";
 import Sidebar from "@/components/Sidebar/index.vue";
+import Square from "@/components/Square/index.vue";
 
 // 側邊欄
 const isSideBarOpened = ref(false);
@@ -25,6 +26,7 @@ onMounted(() => {
 
   <main>
     <Sidebar :isSideBarOpened="isSideBarOpened"></Sidebar>
+    <Square></Square>
   </main>
 </template>
 
@@ -32,6 +34,9 @@ onMounted(() => {
 /* 30px為 header */
 main {
   height: calc(100vh - 2rem);
-  overflow-x: hidden;
+  position: relative;
+  background-color: darkgrey;
+  overflow: hidden;
+  padding: 0 1rem;
 }
 </style>
