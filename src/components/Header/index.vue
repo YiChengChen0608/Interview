@@ -6,27 +6,61 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  animationType: {
+    type: Number,
+    default: 1,
+  },
 });
 
-const emit = defineEmits(["hamburgerClick"]);
+const emit = defineEmits(["hamburgerClick", "setAnimationType"]);
 
 const hamburgerClick = () => {
   emit("hamburgerClick");
 };
+
+const changeAnimationType = (event) => {
+  emit("setAnimationType", +event.target.value);
+};
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <button
       type="button"
       class="hamburger"
       :class="{ active: isSideBarOpened }"
       @click="hamburgerClick"
     ></button>
+    <div>
+      動畫選擇:
+      <select :value="animationType" @change="changeAnimationType">
+        <option value="1">Default</option>
+        <option value="2">Random</option>
+        <option value="3">100顆球</option>
+      </select>
+    </div>
   </header>
 </template>
 
 <style scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  margin-right: 1rem;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+select::before {
+  content: "---------";
+  display: inline-block;
+  height: 10px;
+}
+
 .hamburger {
   background-color: transparent;
   border: none;

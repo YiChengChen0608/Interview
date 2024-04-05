@@ -79,7 +79,6 @@ onMounted(() => {
 .options {
   width: 80%;
   height: 2rem;
-  display: block;
-  margin: auto;
+  margin-left: 0.75rem;
 }
 </style>
